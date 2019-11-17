@@ -1,28 +1,28 @@
-==75079== Memcheck, a memory error detector
-==75079== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==75079== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==75079== Command: ./rc_car_controller
-==75079== 
-==75079== 
-==75079== Process terminating with default action of signal 2 (SIGINT)
-==75079==    at 0x495F3F2: read (in /usr/lib/libc-2.30.so)
-==75079==    by 0x48F1441: _IO_file_underflow@@GLIBC_2.2.5 (in /usr/lib/libc-2.30.so)
-==75079==    by 0x48F0507: _IO_file_xsgetn (in /usr/lib/libc-2.30.so)
-==75079==    by 0x48E4BB2: fread (in /usr/lib/libc-2.30.so)
-==75079==    by 0x1092FC: main (rc_car_controller.c:56)
-==75079== 
-==75079== HEAP SUMMARY:
-==75079==     in use at exit: 992 bytes in 3 blocks
-==75079==   total heap usage: 5 allocs, 2 frees, 9,184 bytes allocated
-==75079== 
-==75079== LEAK SUMMARY:
-==75079==    definitely lost: 0 bytes in 0 blocks
-==75079==    indirectly lost: 0 bytes in 0 blocks
-==75079==      possibly lost: 0 bytes in 0 blocks
-==75079==    still reachable: 992 bytes in 3 blocks
-==75079==         suppressed: 0 bytes in 0 blocks
-==75079== Reachable blocks (those to which a pointer was found) are not shown.
-==75079== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==75079== 
-==75079== For lists of detected and suppressed errors, rerun with: -s
-==75079== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==199093== Memcheck, a memory error detector
+==199093== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==199093== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==199093== Command: ./rc_car_controller
+==199093== 
+==199093== 
+==199093== Process terminating with default action of signal 2 (SIGINT)
+==199093==    at 0x495F15B: open (in /usr/lib/libc-2.30.so)
+==199093==    by 0x48F0C85: _IO_file_open (in /usr/lib/libc-2.30.so)
+==199093==    by 0x48F0E40: _IO_file_fopen@@GLIBC_2.2.5 (in /usr/lib/libc-2.30.so)
+==199093==    by 0x48E464C: __fopen_internal (in /usr/lib/libc-2.30.so)
+==199093==    by 0x109278: main (in /home/joey/programming/c/electronics_rc_car/rc_car_controller)
+==199093== 
+==199093== HEAP SUMMARY:
+==199093==     in use at exit: 992 bytes in 3 blocks
+==199093==   total heap usage: 3 allocs, 0 frees, 992 bytes allocated
+==199093== 
+==199093== LEAK SUMMARY:
+==199093==    definitely lost: 0 bytes in 0 blocks
+==199093==    indirectly lost: 0 bytes in 0 blocks
+==199093==      possibly lost: 0 bytes in 0 blocks
+==199093==    still reachable: 992 bytes in 3 blocks
+==199093==         suppressed: 0 bytes in 0 blocks
+==199093== Reachable blocks (those to which a pointer was found) are not shown.
+==199093== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==199093== 
+==199093== For lists of detected and suppressed errors, rerun with: -s
+==199093== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

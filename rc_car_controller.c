@@ -69,9 +69,18 @@ void process_event(struct js_event current_event, struct js_event *event, const 
 
 void display_event(struct js_event *event, const int event_num, FILE *bt) {
   
+  char hex_to_ascii[] = "0123456789ABCDEF";
+
   fprintf(bt, "\n");
+  printf("\n");
 
   for (int i = 0; i < event_num; i++) {
-    fprintf(bt, "%X ", event[i].value);
+    for (int j = 3; j >= 0; j--) {
+      fprintf(bt, "%c", hex_to_ascii[(event[i].value>>(4*j)) & 0xF]);
+      printf("%c", hex_to_ascii[(event[i].value>>(4*j)) & 0xF]);
+    }
+    
+    fprintf(bt, " ");
+    printf(" ");
   }
 }
