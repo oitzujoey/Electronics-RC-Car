@@ -76,28 +76,34 @@ void move_motors(direction_t direction) {
   norm_abs_x >>= 7;
   norm_abs_y >>= 7;
 
-  if (direction.x > 0) {
-    analogWrite(right, norm_abs_x);
+//  if (direction.x > 0) {
+  if (direction.x > (2<<13)) {
+//    analogWrite(right, (uint8_t) norm_abs_x);
+    digitalWrite(right, HIGH);
   } else {
-    analogWrite(right, 0);
+//    analogWrite(right, 0);
+    digitalWrite(right, LOW);
   }
   
-  if (direction.x < 0) {
-    analogWrite(left, norm_abs_x);
+//  if (direction.x < 0) {
+  if (direction.x < -(2<<13)) {
+//    analogWrite(left, (uint8_t) norm_abs_x);
+    digitalWrite(left, HIGH);
   } else {
-    analogWrite(left, 0);
+//    analogWrite(left, 0);
+    digitalWrite(left, LOW);
   }
   
   if (direction.y > 0) {
-    analogWrite(back, norm_abs_y);
+    analogWrite(forward, (uint8_t) norm_abs_y);
   } else {
-    analogWrite(back, 0);
+    analogWrite(forward, 0);
   }
   
   if (direction.y < 0) {
-    analogWrite(forward, norm_abs_y);
+    analogWrite(back, (uint8_t) norm_abs_y);
   } else {
-    analogWrite(forward, 0);
+    analogWrite(back, 0);
   }
 }
 
