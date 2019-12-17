@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <SoftwareSerial.h>
 
+#define ANALOG_STEERING
+
 SoftwareSerial HC05UART(8, 9);  //RX, TX
 
 typedef struct {
@@ -76,22 +78,40 @@ void move_motors(direction_t direction) {
   norm_abs_x >>= 7;
   norm_abs_y >>= 7;
 
-//  if (direction.x > 0) {
+#ifdef ANALOG_STEERING
+  if (direction.x > 0) {
+#else
   if (direction.x > (2<<13)) {
-//    analogWrite(right, (uint8_t) norm_abs_x);
+#endif
+#ifdef ANALOG_STEERING
+    analogWrite(right, (uint8_t) norm_abs_x);
+#else
     digitalWrite(right, HIGH);
+#endif
   } else {
-//    analogWrite(right, 0);
+#ifdef ANALOG_STEERING
+    analogWrite(right, 0);
+#else
     digitalWrite(right, LOW);
+#endif
   }
-  
-//  if (direction.x < 0) {
+
+#ifdef ANALOG_STEERING
+  if (direction.x < 0) {
+#else
   if (direction.x < -(2<<13)) {
-//    analogWrite(left, (uint8_t) norm_abs_x);
+#endif
+#ifdef ANALOG_STEERING
+    analogWrite(left, (uint8_t) norm_abs_x);
+#else
     digitalWrite(left, HIGH);
+#endif
   } else {
-//    analogWrite(left, 0);
+#ifdef ANALOG_STEERING`
+    analogWrite(left, 0);
+#else
     digitalWrite(left, LOW);
+#endif
   }
   
   if (direction.y > 0) {
