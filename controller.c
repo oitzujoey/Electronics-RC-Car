@@ -71,6 +71,7 @@ void display_event(struct js_event *event, const int event_num, FILE *bt) {
   
   char hex_to_ascii[] = "0123456789ABCDEF";
 
+  // Yes. '\n' comes first, not last.
   fprintf(bt, "\n");
   printf("\n");
 
